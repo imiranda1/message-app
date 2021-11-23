@@ -1,0 +1,34 @@
+<div class="has-text-centered my-5">
+  <h3 class="subtitle">Seja bem vindo, <b>{{userName}} </b></h3>
+  <h4 ><a (click)="logout()" >Clique aqui para deslogar</a></h4>
+</div>
+<main class="columns">
+  <div class="column is-1"></div>
+  <div class="column is-5">
+     <div  class="ng-untouched ng-pristine ng-invalid">
+        <div class="field">
+           <label class="label">Digite uma mensagem para cadastrar</label>
+           <div class="control">
+             <textarea [(ngModel)]="texto" rows="6" placeholder="Digite o texto desejado" maxlength="500" class="textarea has-fixed-size ng-untouched ng-pristine ng-invalid"></textarea></div>
+        </div>
+        <div class="field is-grouped">
+           <div (click)="cadastrarMessage()"class="control"><button class="button is-link">Cadastrar</button></div>
+        </div>
+      </div>
+  </div>
+
+  <div class="column is-1"></div>
+
+
+    <div class="column is-4">
+      <div div *ngFor="let msg of messagesList"  class="field ng-star-inserted">
+        <label class="label">{{msg.date}}</label>
+        <div class="control">
+          <textarea disabled="" class="textarea has-fixed-size">{{msg.text}}</textarea>
+        </div>
+      </div>
+    </div>
+
+
+
+</main>
