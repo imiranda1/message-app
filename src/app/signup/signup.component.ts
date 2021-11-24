@@ -38,7 +38,6 @@ export class SignupComponent implements OnInit {
       }
       else{
         this.toast.error("Erro ao cadastrar");
-        alert("Erro ao cadastrar");
 
         this.router.navigate(['/messages']);
       }
