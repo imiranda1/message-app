@@ -53,13 +53,14 @@ export class MessageComponent implements OnInit {
     this.web.cadastrarMessage(this.texto).subscribe(res =>{
       console.log(res);
       if(res.status == "200"){
-        alert("Cadastro realizado com Sucesso");
+        this.toast.success("Cadastro realizado com Sucesso");
+
         this.router.navigate(["/messages"])
         this.loadMessages();
         this.texto = "";
       }
       else{
-        alert("Erro ao cadastrar");
+        this.toast.error("Erro ao criar mensagem!");
 
       }
     });
