@@ -15,10 +15,10 @@ export class WebService {
   userMsg = "https://tiagoifsp.ddns.net/mensagens/jwt/msg.php";
   constructor(private http : HttpClient) { }
 
-  fazerLogin(): Observable<any> {
+  fazerLogin(user: User): Observable<any> {
       let body = new HttpParams();
-      body = body.set("login", "icaro@gmail.com");
-      body = body.set("senha", "icaro");
+      body = body.set("login",user.login);
+      body = body.set("senha", user.senha);
 
       return this.http.post<any>(this.userURL,body)
         .pipe(

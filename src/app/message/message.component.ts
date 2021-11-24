@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Message } from '../Message';
 import { WebService } from '../web.service';
 
@@ -15,7 +16,8 @@ export class MessageComponent implements OnInit {
   texto: string = "";
   constructor(private web : WebService,
     private rota: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private toast: ToastrService) { }
 
   ngOnInit(): void {
 

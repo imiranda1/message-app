@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AppComponent } from './app.component';
@@ -11,6 +13,7 @@ import { SignupComponent } from './signup/signup.component';
 import { MessageComponent } from './message/message.component';
 import { InitialComponent } from './initial/initial.component';
 import { LogInterceptor } from 'LogInterceptor';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -18,14 +21,18 @@ import { LogInterceptor } from 'LogInterceptor';
     LoginComponent,
     SignupComponent,
     MessageComponent,
-    InitialComponent
+    InitialComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    CommonModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [
     {

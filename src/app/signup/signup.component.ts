@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { User } from '../User';
 import { WebService } from '../web.service';
 
@@ -14,7 +15,8 @@ export class SignupComponent implements OnInit {
   formUser: FormGroup;
   constructor(private web : WebService,
     private rota: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private toast: ToastrService) { }
 
   ngOnInit(): void {
     this.inicializarForm();
@@ -31,11 +33,13 @@ export class SignupComponent implements OnInit {
     this.web.cadastrar(this.formUser.value).subscribe(res =>{
       console.log(res);
       if(res.status == "OK"){
-        alert("Cadastro realizado com Sucesso");
+        this.toast.success("Cadastro realizado com Sucesso");
         this.router.navigate(['/messages']);
       }
       else{
+        this.toast.error("Erro ao cadastrar");
         alert("Erro ao cadastrar");
+
         this.router.navigate(['/messages']);
       }
     });
